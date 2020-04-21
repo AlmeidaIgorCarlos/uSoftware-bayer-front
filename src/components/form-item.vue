@@ -1,5 +1,6 @@
 <template>
-  <input :type="type" :value="value" :placeholder="placeholderValue" />
+  <input v-if="click" :type="type" :value="value" :placeholder="placeholderValue" @click="click"/>
+  <input v-else :type="type" :value="value" :placeholder="placeholderValue" />
 </template>
 
 <script>
@@ -7,7 +8,8 @@ export default {
   props: {
     placeholderValue: String,
     type: String,
-    value: String
+    value: String,
+    click: Function
   }
 };
 </script>

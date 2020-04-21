@@ -5,7 +5,7 @@
       <FormItem type="text" placeholderValue="Email Address" />
       <FormItem type="password" placeholderValue="Password" />
       <FormItem type="button" value="sign in" />
-      <FormItem type="button" value="sign up" />
+      <FormItem type="button" value="sign up" :click="goToSignUp"/>
     </Form>
   </div>
 </template>
@@ -14,6 +14,7 @@
 import Form from "../components/form";
 import FormItem from "../components/form-item.vue";
 import FormTitle from "../components/form-title";
+import router from '../router';
 export default {
   components: {
     FormItem,
@@ -22,6 +23,11 @@ export default {
   },
   mounted() {
     document.body.style = "background-color:black;";
+  },
+  methods:{
+    goToSignUp(){
+      router.push('/signup');
+    }
   }
 };
 </script>
