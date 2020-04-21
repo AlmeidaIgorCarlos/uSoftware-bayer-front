@@ -12,8 +12,6 @@ export default {};
 #form {
   max-width: 350px;
   margin: 0 auto;
-
-  margin-top: 20%;
 }
 
 #form > * {

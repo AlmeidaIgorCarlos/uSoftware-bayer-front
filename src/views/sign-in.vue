@@ -4,7 +4,8 @@
       <FormTitle title="Sign Into uSoftware Bayer"/>
       <FormItem type="text" placeholderValue="Email Address" />
       <FormItem type="password" placeholderValue="Password" />
-      <FormItem type="button" value="sign in" placeholderValue="Password" />
+      <FormItem type="button" value="sign in" />
+      <FormItem type="button" value="sign up" />
     </Form>
   </div>
 </template>
