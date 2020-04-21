@@ -9,11 +9,6 @@ export default {};
 </script>
 
 <style lang="scss" scoped>
-:root{
-  --form-item-fore-color: #b3b3b3;
-
-}
-
 #form {
   max-width: 350px;
   margin: 0 auto;
@@ -26,7 +21,8 @@ export default {};
 }
 
 #form > *[type="button"] {
-    background-color:var(--form-item-fore-color);
+  --form-fore-color: #b3b3b3;
+    background-color:var(--form-fore-color);
     color: black;
     width: 100%;
     min-height: 40px;
