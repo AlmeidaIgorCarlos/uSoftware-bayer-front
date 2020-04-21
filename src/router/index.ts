@@ -1,11 +1,20 @@
 import Vue from 'vue'
 import VueRouter, { RouteConfig } from 'vue-router'
-import Home from '../views/Home.vue'
+import SignIn from '../views/sign-in.vue'
 
 Vue.use(VueRouter)
 
   const routes: Array<RouteConfig> = [
-  
+    {
+      path: '/',
+      name: 'Home',
+      redirect: 'signin'
+    },
+    {
+    path: '/signin',
+    name: 'signin',
+    component: SignIn
+  }
 ]
 
 const router = new VueRouter({
