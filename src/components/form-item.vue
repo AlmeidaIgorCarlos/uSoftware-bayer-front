@@ -1,15 +1,17 @@
 <template>
   <input v-if="click" :type="type" :value="value" :placeholder="placeholderValue" @click="click"/>
+  <input v-else-if="keyup" :type="type" :value="value" :placeholder="placeholderValue" @keyup="keyup"/>
   <input v-else :type="type" :value="value" :placeholder="placeholderValue" />
 </template>
 
-<script>
+<script>  
 export default {
   props: {
     placeholderValue: String,
     type: String,
     value: String,
-    click: Function
+    click: Function,
+    keyup: Function
   }
 };
 </script>
