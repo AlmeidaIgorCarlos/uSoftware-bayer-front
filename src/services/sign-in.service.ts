@@ -1,5 +1,5 @@
 import axios from 'axios'
-import stateSignInModel from '../models/sign-in.models'
+import stateSignInModel from '../models/sign-in.model'
 import routes from './routes.enum'
 import { setLocalStorageItem } from '../services/local-storage.service'
 import localStorageEnum from '../services/local-storage.enum'

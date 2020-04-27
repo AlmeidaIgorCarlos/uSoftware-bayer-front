@@ -2,8 +2,9 @@ import Vue from 'vue'
 import Vuex from 'vuex'
 
 import { setSignInStateAction } from './actions/sign-in.action'
+import { setSignUpStateAction } from './actions/sign-up.action'
 import { setSignInStateMutation } from './mutations/sign-in.mutation'
-import stateSignInModel from '../models/sign-in.models'
+import { setSignUpStateMutation } from './mutations/sign-up.mutation'
 
 Vue.use(Vuex)
 export default new Vuex.Store({
@@ -11,13 +12,22 @@ export default new Vuex.Store({
     signin: {
       email: String,
       password: String
+    },
+    signup:{
+      firstName: String,
+      lastName: String,
+      email: String,
+      password: String,
+      passwordConfirmation: String
     }
   },
   mutations: {
-    setSignInStateMutation
+    setSignInStateMutation,
+    setSignUpStateMutation
   },
   actions: {
-    setSignInStateAction
+    setSignInStateAction,
+    setSignUpStateAction
   },
   modules: {
   }
