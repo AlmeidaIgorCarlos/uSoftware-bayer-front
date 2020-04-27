@@ -3,8 +3,13 @@
     <Form>
       <FormTitle title="Sign Into uSoftware Bayer" />
       <FormItem type="text" placeholderValue="Email Address" :keyup="setSignInStateEmail" />
-      <FormItem type="password" name="password" placeholderValue="Password" :keyup="setSignInStatePassword" />
-      <FormItem type="button" value="sign in" />
+      <FormItem
+        type="password"
+        name="password"
+        placeholderValue="Password"
+        :keyup="setSignInStatePassword"
+      />
+      <FormItem type="button" value="sign in" :click="signIn" />
       <FormItem type="button" value="sign up" :click="goToSignUp" />
     </Form>
   </div>
@@ -16,8 +21,13 @@ import FormItem from "../components/form-item.vue";
 import FormTitle from "../components/form-title";
 import router from "../router";
 import { mapActions } from "vuex";
+import { mapState } from "vuex";
 import { setSignInStateAction } from "../store/actions/sign-in.action";
 import { StateSignInModel } from "../models/sign-in.models";
+import {
+  signIn as signInServiceCall,
+  validateSignIn as validateSignInServiceCall
+} from "../services/sign-in.service";
 
 export default {
   components: {
@@ -25,11 +35,28 @@ export default {
     FormTitle,
     Form
   },
+  computed: {
+    ...mapState(["signin"])
+  },
   mounted() {
     document.body.style = "background-color:black;";
   },
   methods: {
     ...mapActions([setSignInStateAction.name]),
+    signIn() {
+      const localStateSignInModel = {
+        email: this.signin.email,
+        password: this.signin.password
+      };
+
+      if (validateSignInServiceCall(localStateSignInModel)) {
+        signInServiceCall(localStateSignInModel)
+          .then(r => {
+            alert('signed in successfully')
+          })
+          .catch(e => alert(e.message));
+      }
+    },
     goToSignUp() {
       router.push("/signup");
     },

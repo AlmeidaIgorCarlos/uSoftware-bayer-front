@@ -1,5 +1,5 @@
-import { StateSignInModel } from '../../models/sign-in.models'
+import stateSignInModel from '../../models/sign-in.models'
 
-export function setSignInStateMutation(state: any, signInData: StateSignInModel) {
+export function setSignInStateMutation(state: any, signInData: stateSignInModel) {
     Object.assign(state.signin, signInData)
 }

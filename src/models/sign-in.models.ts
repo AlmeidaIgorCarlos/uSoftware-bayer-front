@@ -1,4 +1,6 @@
-export class StateSignInModel {
-    public email = ''
-    public password = ''
-} 
+type stateSignInModel = {
+    email: string;
+    password: string;
+}
+
+export default stateSignInModel

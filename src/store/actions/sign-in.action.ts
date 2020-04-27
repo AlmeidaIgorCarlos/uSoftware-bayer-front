@@ -1,5 +1,5 @@
-import { StateSignInModel } from '../../models/sign-in.models'
+import stateSignInModel from '../../models/sign-in.models'
 
-export function setSignInStateAction({ commit }: any, signInData: StateSignInModel): void {
+export function setSignInStateAction({ commit }: any, signInData: stateSignInModel): void {
     commit('setSignInStateMutation', signInData)
 }
