@@ -1,5 +1,6 @@
 enum routes {
-    signInRoute = '/signin'
+    signInRoute = '/auth/signin',
+    signUpRoute = '/auth/signup',
 }
 
 export default routes

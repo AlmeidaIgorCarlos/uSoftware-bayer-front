@@ -23,7 +23,6 @@ import router from "../router";
 import { mapActions } from "vuex";
 import { mapState } from "vuex";
 import { setSignInStateAction } from "../store/actions/sign-in.action";
-import { StateSignInModel } from "../models/sign-in.models";
 import {
   signIn as signInServiceCall,
   validateSignIn as validateSignInServiceCall
@@ -51,9 +50,7 @@ export default {
 
       if (validateSignInServiceCall(localStateSignInModel)) {
         signInServiceCall(localStateSignInModel)
-          .then(r => {
-            alert('signed in successfully')
-          })
+          .then(alert('signed in successfully'))
           .catch(e => alert(e.message));
       }
     },
