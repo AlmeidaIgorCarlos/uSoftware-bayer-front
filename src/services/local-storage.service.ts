@@ -4,5 +4,9 @@ export function setLocalStorageItem(key: string, value: any){
 
 export function getItemFromLocalStorage(key: string){
     const localStorageItem = localStorage.getItem(key)
+    
+    if(!localStorageItem)
+        return null
+
     return JSON.stringify(localStorageItem)
 }
