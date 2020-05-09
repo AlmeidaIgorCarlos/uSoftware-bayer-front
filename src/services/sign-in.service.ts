@@ -6,7 +6,10 @@ import localStorageEnum from '../services/local-storage.enum'
 
 export async function signIn(signInData: stateSignInModel) {
     try {
-        const callResult = await axios.post(process.env.VUE_APP_BASE_URL + routes.signInRoute, signInData)
+        const callResult = await axios.post(process.env.VUE_APP_BASE_URL + routes.signInRoute, {
+            username: signInData.email,
+            password: signInData.password
+        })
         const { data } = callResult
         setLocalStorageItem(localStorageEnum.signin, data)
         return data

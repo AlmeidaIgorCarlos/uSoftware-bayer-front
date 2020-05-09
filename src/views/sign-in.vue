@@ -50,7 +50,7 @@ export default {
 
       if (validateSignInServiceCall(localStateSignInModel)) {
         signInServiceCall(localStateSignInModel)
-          .then(alert('signed in successfully'))
+          .then(e => alert(e))
           .catch(e => alert(e.message));
       }
     },
