@@ -23,7 +23,8 @@
           />
       </Lateralmenu>
     <section id="content">
-      <ContentBar />
+      <ContentBar height="70px" color="#d9d9d9" />
+      <ContentBar height="50px" color="black" />
     </section>
   </div>
 </template>
@@ -48,7 +49,8 @@ export default {
 }
 
 #content {
-  margin-left: 10px;
+  margin-left: 0px;
   margin-top: 0px;
+  width:100%;
 }
 </style>

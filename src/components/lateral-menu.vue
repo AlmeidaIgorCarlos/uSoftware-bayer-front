@@ -28,7 +28,7 @@ export default {
         elementDOM.style = "left: 5px";
       } else {
         menuDOM.style = "width: 23vw";
-        elementDOM.style = "left: 230px";
+        elementDOM.style = "left: 180px";
       }
 
       menu.state = !menu.state ? true : false;
@@ -44,6 +44,7 @@ export default {
   background-color: black;
   width: 23vw;
   min-height: 100vh;
+  overflow:hidden;
 }
 
 #lateral-menu ul {
@@ -63,7 +64,7 @@ export default {
 
 #lateral-menu > div {
   position: absolute;
-  left: 230px;
+  left: 180px;
   bottom: 10px;
 
   width: 65px;
