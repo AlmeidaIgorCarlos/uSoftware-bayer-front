@@ -11,7 +11,7 @@ const routes: Array<RouteConfig> = [
   {
     path: '/',
     name: 'Home',
-    redirect: 'signin'
+    redirect: 'main'
   },
   {
     path: '/signin',
