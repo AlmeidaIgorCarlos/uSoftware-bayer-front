@@ -11,7 +11,7 @@ const routes: Array<RouteConfig> = [
   {
     path: '/',
     name: 'Home',
-    redirect: 'main'
+    redirect: 'signin'
   },
   {
     path: '/signin',
@@ -38,12 +38,10 @@ const router = new VueRouter({
 })
 
 router.beforeEach((to, from, next) => {
-  if (to.name === 'main') {
-    if (!getItemFromLocalStorage('signin')){
-      next('/')
-    }
+  if (to.path === '/main') {
+    if (!getItemFromLocalStorage('signin'))
+      next({ path: '/' })
   }
-
   next()
 })
 
