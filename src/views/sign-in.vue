@@ -50,7 +50,11 @@ export default {
 
       if (validateSignInServiceCall(localStateSignInModel)) {
         signInServiceCall(localStateSignInModel)
-          .then(e => alert(e))
+          .then(e => {
+            alert("You have successfully signed into the system");
+            // router.push("/main");
+            this.$router.push('/main', () => this.$router.go(0))
+          })
           .catch(e => alert(e.message));
       }
     },

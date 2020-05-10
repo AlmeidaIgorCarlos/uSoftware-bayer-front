@@ -23,7 +23,6 @@
           />
       </Lateralmenu>
     <section id="content">
-      <!-- fa -->
     </section>
   </div>
 </template>
@@ -41,7 +40,6 @@ export default {
 
 <style lang="scss" scoped>
 #main {
-  color: white;
   display: flex;
   flex-direction: row;
   height: 100%;
