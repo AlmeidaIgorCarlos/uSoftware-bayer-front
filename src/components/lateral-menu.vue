@@ -24,10 +24,10 @@ export default {
       const menu = this.lateralMenu;
 
       if (!menu.state) {
-        menuDOM.style = "width: 78px";
+        menuDOM.style = "width: 6vw";
         elementDOM.style = "left: 5px";
       } else {
-        menuDOM.style = "width: 300px";
+        menuDOM.style = "width: 23vw";
         elementDOM.style = "left: 230px";
       }
 
@@ -40,11 +40,10 @@ export default {
 <style lang="scss" scoped>
 #lateral-menu {
   transition: width 0.5s;
-  margin-left: -10px;
-  margin-top: -10px;
+  margin-left: -5px;
   background-color: black;
-  width: 300px;
-  min-height: 102vh;
+  width: 23vw;
+  min-height: 100vh;
 }
 
 #lateral-menu ul {
@@ -74,7 +73,6 @@ export default {
   background-color: rgba($color: #66c2ff, $alpha: 1);
 
   transition: left 0.5s;
-
 }
 
 .pointer{

@@ -23,6 +23,7 @@
           />
       </Lateralmenu>
     <section id="content">
+      <ContentBar />
     </section>
   </div>
 </template>
@@ -30,10 +31,12 @@
 <script>
 import LateralMenu from "../components/lateral-menu";
 import MenuItem from "../components/menu-item";
+import ContentBar from "../components/content-bar"
 export default {
     components:{
         LateralMenu,
-        MenuItem
+        MenuItem,
+        ContentBar
     }
 };
 </script>
@@ -42,7 +45,6 @@ export default {
 #main {
   display: flex;
   flex-direction: row;
-  height: 100%;
 }
 
 #content {
