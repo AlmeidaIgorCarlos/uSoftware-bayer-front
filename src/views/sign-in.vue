@@ -53,7 +53,9 @@ export default {
           .then(e => {
             alert("You have successfully signed into the system");
             // router.push("/main");
-            this.$router.push('/main', () => this.$router.go(0))
+            if (e.role === "user")
+              this.$router.push("/user", () => this.$router.go(0));
+            else this.$router.push("/administrator", () => this.$router.go(0));
           })
           .catch(e => alert(e.message));
       }

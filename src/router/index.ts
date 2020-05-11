@@ -1,9 +1,10 @@
 import Vue from 'vue'
 import VueRouter, { RouteConfig } from 'vue-router'
+import { getItemFromLocalStorage } from '../services/local-storage.service'
 import SignIn from '../views/sign-in.vue'
 import SignUp from '../views/sign-up.vue'
-import Main from '../views/main.vue'
-import { getItemFromLocalStorage } from '../services/local-storage.service'
+import Administrator from '../views/administrator.vue'
+import User from '../views/user.vue'
 
 Vue.use(VueRouter)
 
@@ -24,9 +25,14 @@ const routes: Array<RouteConfig> = [
     component: SignUp
   },
   {
-    path: '/main',
-    name: 'main',
-    component: Main
+    path: '/administrator',
+    name: 'administrator',
+    component: Administrator
+  },
+  {
+    path: '/user',
+    name: 'user',
+    component: User
   }
 ]
 

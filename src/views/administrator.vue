@@ -1,5 +1,5 @@
 <template>
-  <div id="main">
+  <div id="administrator">
       <LateralMenu>
           <MenuItem 
             imageLocation="./../assets/job_icon.svg"
@@ -43,7 +43,7 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-#main {
+#administrator {
   display: flex;
   flex-direction: row;
 }
