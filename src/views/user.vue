@@ -53,6 +53,5 @@ export default {
   margin-top: 0px;
   width:100%;
   background-color:white;
-  z-index: -2;
 }
 </style>
