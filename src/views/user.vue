@@ -23,7 +23,7 @@
           />
       </Lateralmenu>
     <section id="content">
-      <ContentBar height="70px" color="#d9d9d9" />
+      <ContentBar height="100px" color="#d9d9d9" />
     </section>
   </div>
 </template>

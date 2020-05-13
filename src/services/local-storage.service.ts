@@ -8,5 +8,5 @@ export function getItemFromLocalStorage(key: string){
     if(!localStorageItem)
         return null
 
-    return JSON.stringify(localStorageItem)
+    return JSON.parse(localStorageItem)
 }

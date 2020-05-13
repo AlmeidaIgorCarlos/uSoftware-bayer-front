@@ -65,7 +65,7 @@ export default {
             else router.push("/administrator");
           })
           .catch(e => alert(e.message));
-      }
+      }else { alert('Invalid Sign In Data') }
     },
     goToSignUp() {
       router.push("/signup");
