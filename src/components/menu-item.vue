@@ -1,13 +1,15 @@
 <template>
   <li class="pointer">
-    <img :style="{width: `${this.imageWidth}px`}" :src="this.imageLocation" />
+    <img
+      :style="{width: `${this.imageWidth}px`}"
+      :src="this.imageLocation"
+    />
     <p>{{this.text}}</p>
   </li>
 </template>
 
 <script>
 export default {
-
   props: {
     imageLocation: String,
     imageWidth: String,
@@ -34,7 +36,7 @@ p {
   color: white;
 }
 
-.pointer{
+.pointer {
   cursor: pointer;
   outline: none;
 }

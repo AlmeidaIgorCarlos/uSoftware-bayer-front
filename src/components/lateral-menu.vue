@@ -3,14 +3,13 @@
     <ul>
       <slot></slot>
     </ul>
-    <div class="pointer" @click="this.controlMenu">
-      <span class="pointer">Menu</span>
-    </div>
+      <img class="pointer" src="../assets/menu_icon.svg" @click="this.controlMenu"/>
   </div>
 </template>
 
 <script>
 export default {
+
   data() {
     return {
       lateralMenu: {}
@@ -18,7 +17,7 @@ export default {
   },
   methods: {
     controlMenu(element) {
-      if (element.target.nodeName != "DIV") return;
+      if (element.target.nodeName != "IMG") return;
       const menuDOM = this.$refs.lateralMenu;
       const elementDOM = element.srcElement;
       const menu = this.lateralMenu;
@@ -56,22 +55,20 @@ export default {
 #lateral-menu span {
   position: relative;
 
-  top: 22px;
+  top: 17px;
   left: 10px;
 
   text-transform: uppercase;
+  color: white
 }
 
-#lateral-menu > div {
+#lateral-menu > img {
   position: absolute;
   left: 180px;
   bottom: 10px;
 
   width: 65px;
-  height: 60px;
-  border-radius: 100px;
-
-  background-color: rgba($color: #66c2ff, $alpha: 1);
+  height: 50px;
 
   transition: left 0.5s;
 }

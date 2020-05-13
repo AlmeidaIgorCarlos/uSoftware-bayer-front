@@ -3,22 +3,22 @@
       <LateralMenu >
           <MenuItem 
             imageLocation="./../assets/job_icon.svg"
-            imageWidth="45"
+            imageWidth="50"
             text="vacancies"
           />
           <MenuItem 
             imageLocation="./../assets/candidate_icon.svg"
-            imageWidth="45"
+            imageWidth="50"
             text="candidates"
           />
           <MenuItem 
             imageLocation="./../assets/chart_icon.svg"
-            imageWidth="45"
+            imageWidth="50"
             text="charts"
           />
           <MenuItem 
             imageLocation="./../assets/config_icon.svg"
-            imageWidth="45"
+            imageWidth="50"
             text="configuration"
           />
       </Lateralmenu>
