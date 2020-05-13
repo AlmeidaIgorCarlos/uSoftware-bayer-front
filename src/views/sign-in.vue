@@ -23,6 +23,7 @@ import router from "../router";
 import { mapActions } from "vuex";
 import { mapState } from "vuex";
 import { setSignInStateAction } from "../store/actions/sign-in.action";
+import { setCurrentUserStateAction } from "../store/actions/current-user.action";
 import {
   signIn as signInServiceCall,
   validateSignIn as validateSignInServiceCall
@@ -41,7 +42,7 @@ export default {
     document.body.style = "background-color:black;";
   },
   methods: {
-    ...mapActions([setSignInStateAction.name]),
+    ...mapActions([setSignInStateAction.name, setCurrentUserStateAction.name]),
     signIn() {
       const localStateSignInModel = {
         email: this.signin.email,
@@ -52,10 +53,16 @@ export default {
         signInServiceCall(localStateSignInModel)
           .then(e => {
             alert("You have successfully signed into the system");
-            // router.push("/main");
-            if (e.role === "user")
-              this.$router.push("/user", () => this.$router.go(0));
-            else this.$router.push("/administrator", () => this.$router.go(0));
+            this.setCurrentUserStateAction({
+              id: e.id,
+              firstName: e.firstName,
+              lastName: e.lastName,
+              role: e.role,
+              accessToken: e.access_token
+            });
+            router.push("/main");
+            if (e.role === "user") router.push("/user");
+            else router.push("/administrator");
           })
           .catch(e => alert(e.message));
       }
