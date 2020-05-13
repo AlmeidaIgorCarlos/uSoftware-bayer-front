@@ -1,6 +1,6 @@
 <template>
   <div id="user">
-      <LateralMenu>
+      <LateralMenu >
           <MenuItem 
             imageLocation="./../assets/job_icon.svg"
             imageWidth="45"
@@ -24,7 +24,6 @@
       </Lateralmenu>
     <section id="content">
       <ContentBar height="70px" color="#d9d9d9" />
-      <ContentBar height="50px" color="black" />
     </section>
   </div>
 </template>
@@ -43,6 +42,7 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+
 #user {
   display: flex;
   flex-direction: row;

@@ -24,10 +24,10 @@ export default {
       const menu = this.lateralMenu;
 
       if (!menu.state) {
-        menuDOM.style = "width: 6vw";
+        menuDOM.style = "min-width: 80px; width: 80px";
         elementDOM.style = "left: 5px";
       } else {
-        menuDOM.style = "width: 23vw";
+        menuDOM.style = "min-width: 260";
         elementDOM.style = "left: 180px";
       }
 
@@ -42,7 +42,7 @@ export default {
   transition: width 0.5s;
   margin-left: -5px;
   background-color: black;
-  width: 23vw;
+  min-width: 260px;
   min-height: 100vh;
   overflow:hidden;
 }
