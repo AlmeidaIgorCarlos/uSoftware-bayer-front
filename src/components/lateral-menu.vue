@@ -48,7 +48,7 @@ export default {
 
 #lateral-menu ul {
   margin-top: 50px;
-  margin-left: -22px;
+  margin-left: 20px;
   list-style: none;
 }
 
