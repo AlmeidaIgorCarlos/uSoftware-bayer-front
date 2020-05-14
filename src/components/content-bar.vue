@@ -2,7 +2,7 @@
   <div :style="{height: this.height, 'background-color': this.color }" id="content-bar">
     <img src="../assets/sign_out_icon.svg" class="pointer" @click="signOut" />
     <div id="personal-info">
-      <img src="../assets/user_tie_icon.svg" @click="signOut" />
+      <img src="../assets/user_tie_icon.svg" class="pointer" @click="signOut" />
       <div id="info">
         <p>ID: {{this.currentUser.id}}</p>
         <p>Name: {{this.fullName}}</p>
