@@ -1,9 +1,11 @@
 <template>
-  <li class="pointer">
-    <img
-      :style="{width: `${this.imageWidth}px`}"
-      :src="this.imageLocation"
-    />
+  <li
+    class="pointer"
+    ref="menuItem"
+    @click="setStatus"
+    :style="{'background-color': this.backgroundColor}"
+  >
+    <img :style="{width: `${this.imageWidth}px`}" :src="this.imageLocation" />
     <p>{{this.text}}</p>
   </li>
 </template>
@@ -13,7 +15,14 @@ export default {
   props: {
     imageLocation: String,
     imageWidth: String,
-    text: String
+    text: String,
+    backgroundColor: String
+  },
+  methods: {
+    setStatus() {
+      const menuItemDOM = this.$refs.menuItem;
+      this.$emit("setStatus", menuItemDOM);
+    }
   }
 };
 </script>
@@ -22,6 +31,7 @@ export default {
 li {
   display: flex;
   justify-content: start;
+  padding-left: 20px;
 }
 
 li:not(:first-of-type) {

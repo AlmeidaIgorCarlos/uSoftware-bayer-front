@@ -38,7 +38,7 @@ export default {
 
 <style lang="scss" scoped>
 #lateral-menu {
-  transition: width 0.5s;
+  transition: min-width 0.5s;
   margin-left: -5px;
   background-color: black;
   min-width: 260px;
@@ -47,8 +47,8 @@ export default {
 }
 
 #lateral-menu ul {
-  margin-top: 50px;
-  margin-left: -22px;
+  margin-top: 45px;
+  padding-left: 0px;
   list-style: none;
 }
 

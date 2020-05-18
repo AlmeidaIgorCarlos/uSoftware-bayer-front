@@ -1,25 +1,30 @@
 <template>
   <div id="user">
-      <LateralMenu >
+      <LateralMenu ref="lateralMenu">
           <MenuItem 
             imageLocation="./../assets/job_icon.svg"
             imageWidth="50"
             text="vacancies"
+            backgroundColor="black"
+            @setStatus="setStatus"
           />
           <MenuItem 
             imageLocation="./../assets/candidate_icon.svg"
             imageWidth="50"
             text="candidates"
+            @setStatus="setStatus"
           />
           <MenuItem 
             imageLocation="./../assets/chart_icon.svg"
             imageWidth="50"
             text="charts"
+            @setStatus="setStatus"
           />
           <MenuItem 
             imageLocation="./../assets/config_icon.svg"
             imageWidth="50"
             text="configuration"
+            @setStatus="setStatus"
           />
       </Lateralmenu>
     <section id="content">
@@ -37,6 +42,27 @@ export default {
         LateralMenu,
         MenuItem,
         ContentBar
+    },
+    mounted(){
+      const lateralMenu = this.$refs.lateralMenu
+      const lateralMenuChildren = lateralMenu.$children.map(e => e.$refs.menuItem)
+
+      this.listItems = lateralMenuChildren
+    },
+    data(){
+      return {}
+    },
+    methods:{
+      setStatus(element){
+        if(this.listItems){
+          this.listItems.forEach(e => {
+            if(element !== e){
+              e.style.backgroundColor = 'black'
+            }else
+            e.style.backgroundColor = '#d9d9d9'
+          });
+        }else this.listItems = []
+      }
     }
 };
 </script>
