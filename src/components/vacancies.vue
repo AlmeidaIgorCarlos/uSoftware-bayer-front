@@ -51,7 +51,7 @@ export default {
     },
     async remove(vacancy) {
       const data = await deactivateVacancy(vacancy)
-      alert(data)
+      alert('Vacancy deactivated successfully')
     }
   }
 };
