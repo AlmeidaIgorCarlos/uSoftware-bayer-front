@@ -23,11 +23,11 @@ export default {
       const menu = this.lateralMenu;
 
       if (!menu.state) {
-        menuDOM.style = "min-width: 80px; width: 80px";
-        elementDOM.style = "left: 5px";
+        menuDOM.style = "min-width: 70px; width: 70px";
+        elementDOM.style = "left: 15px";
       } else {
         menuDOM.style = "min-width: 260";
-        elementDOM.style = "left: 180px";
+        elementDOM.style = "left: 210px";
       }
 
       menu.state = !menu.state ? true : false;
@@ -64,11 +64,11 @@ export default {
 
 #lateral-menu > img {
   position: absolute;
-  left: 180px;
+  left: 210px;
   bottom: 10px;
 
-  width: 65px;
-  height: 50px;
+  width: 30px;
+  height: 30px;
 
   transition: left 0.5s;
 }

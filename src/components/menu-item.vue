@@ -44,6 +44,7 @@ p {
   text-transform: uppercase;
   letter-spacing: 2px;
   color: white;
+  font-family: sans-serif;
 }
 
 .pointer {

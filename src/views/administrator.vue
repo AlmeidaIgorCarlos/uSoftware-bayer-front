@@ -3,32 +3,32 @@
       <LateralMenu ref="lateralMenu">
           <MenuItem 
             imageLocation="./../assets/job_icon.svg"
-            imageWidth="50"
+            imageWidth="30"
             text="vacancies"
             backgroundColor="black"
             @setStatus="setStatus"
           />
           <MenuItem 
             imageLocation="./../assets/candidate_icon.svg"
-            imageWidth="50"
+            imageWidth="30"
             text="candidates"
             @setStatus="setStatus"
           />
           <MenuItem 
             imageLocation="./../assets/chart_icon.svg"
-            imageWidth="50"
+            imageWidth="30"
             text="charts"
             @setStatus="setStatus"
           />
           <MenuItem 
             imageLocation="./../assets/config_icon.svg"
-            imageWidth="50"
+            imageWidth="30"
             text="configuration"
             @setStatus="setStatus"
           />
       </Lateralmenu>
     <section id="content">
-      <ContentBar height="100px" color="#d9d9d9" />
+      <ContentBar height="50px" color="#d9d9d9" />
       <Vacancies />
     </section>
   </div>

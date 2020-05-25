@@ -29,12 +29,17 @@
 </template>
 
 <script>
-import { getvacancies, getVacancies, deactivateVacancy } from "./../services/vacancy.service";
+import {
+  getvacancies,
+  getVacancies,
+  deactivateVacancy
+} from "./../services/vacancy.service";
 
 export default {
   data() {
     return {
-      vacancies: []
+      vacancies: [],
+      vacancyModalStyle: {}
     };
   },
   async mounted() {
@@ -50,8 +55,8 @@ export default {
       alert("1");
     },
     async remove(vacancy) {
-      const data = await deactivateVacancy(vacancy)
-      alert('Vacancy deactivated successfully')
+      const data = await deactivateVacancy(vacancy);
+      alert("Vacancy deactivated successfully");
     }
   }
 };
@@ -62,10 +67,8 @@ div {
   width: 95%;
   height: 80vh;
 
-  margin-top: 10px;
+  margin-top: 20px;
   margin-left: 3%;
-
-  // background-color: #d9d9d9;
 
   border-radius: 10px;
 
@@ -89,7 +92,7 @@ header > input {
   cursor: pointer;
   outline: none;
   height: 35px;
-  box-shadow: 5px 7px 20px black;
+  box-shadow: 3px 3px 10px grey;
 }
 
 ul {
@@ -129,5 +132,22 @@ li div {
 
 li div > img:not(:first-of-type) {
   padding-left: 15px;
+}
+
+.etc {
+  position: absolute;
+
+  width: 98%;
+  height: 98vh;
+
+  top: -10px;
+
+  background-color: #d9d9d9;
+
+  border-radius: 10px;
+
+  text-transform: uppercase;
+
+  transition: left 1s;
 }
 </style>
