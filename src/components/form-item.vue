@@ -37,9 +37,6 @@ input {
   padding-left: 10px;
   text-align: left;
 
-  font-family: arial;
-  font-size: 1em;
-
   display: block;
 }
 </style>

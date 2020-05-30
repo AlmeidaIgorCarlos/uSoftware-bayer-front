@@ -2,10 +2,10 @@
   <li
     class="pointer"
     ref="menuItem"
-    @click="setStatus"
+    @click="setMenuItemStatus"
     :style="{'background-color': this.backgroundColor}"
   >
-    <img :style="{width: `${this.imageWidth}px`}" :src="this.imageLocation" />
+    <img :style="{width: this.imageWidth}" :src="this.imageLocation" />
     <p>{{this.text}}</p>
   </li>
 </template>
@@ -19,9 +19,9 @@ export default {
     backgroundColor: String
   },
   methods: {
-    setStatus() {
+    setMenuItemStatus() {
       const menuItemDOM = this.$refs.menuItem;
-      this.$emit("setStatus", menuItemDOM);
+      this.$emit("setMenuItemStatus", menuItemDOM);
     }
   }
 };
@@ -31,7 +31,7 @@ export default {
 li {
   display: flex;
   justify-content: start;
-  padding-left: 20px;
+  padding-left: 30px;
 }
 
 li:not(:first-of-type) {
@@ -41,14 +41,6 @@ li:not(:first-of-type) {
 p {
   margin-left: 20px;
   padding-top: 5px;
-  text-transform: uppercase;
-  letter-spacing: 2px;
   color: white;
-  font-family: sans-serif;
-}
-
-.pointer {
-  cursor: pointer;
-  outline: none;
 }
 </style>

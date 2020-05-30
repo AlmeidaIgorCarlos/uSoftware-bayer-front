@@ -26,7 +26,6 @@ export default {};
     min-height: 40px;
     text-align: center;
     padding-top: 10px;
-    font-size: 1em;
     font-weight: bold;
 }
 

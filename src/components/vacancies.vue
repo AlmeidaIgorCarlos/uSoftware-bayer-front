@@ -72,18 +72,13 @@ div {
 
   border-radius: 10px;
 
-  font-family: sans-serif;
-  text-transform: uppercase;
 }
 div > header {
   justify-content: space-between;
   display: flex;
   padding: 10px;
 }
-header > h1,
-header > input {
-  font-size: 1.1em;
-}
+
 header > input {
   border: none;
   background-color: black;
@@ -145,8 +140,6 @@ li div > img:not(:first-of-type) {
   background-color: #d9d9d9;
 
   border-radius: 10px;
-
-  text-transform: uppercase;
 
   transition: left 1s;
 }

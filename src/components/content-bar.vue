@@ -5,7 +5,7 @@
       focusable="false"
       data-prefix="fas"
       data-icon="sign-out-alt"
-      class="svg-inline--fa fa-sign-out-alt fa-w-16"
+      class="svg-inline--fa fa-sign-out-alt fa-w-16 pointer"
       role="img"
       xmlns="http://www.w3.org/2000/svg"
       viewBox="0 0 512 512"
@@ -24,7 +24,6 @@
 </template>
 
 <script>
-import { mapState } from "vuex";
 import router from "../router/index";
 import {
   setLocalStorageItem,
@@ -80,29 +79,18 @@ export default {
   top: 13px;
 }
 
-.pointer {
-  cursor: pointer;
-  outline: none;
-}
-
 #personal-info {
   display: flex;
   position: relative;
 
   width: 500px;
-  top: 15px;
-  left: 40px;
-}
-
-#info {
-  font-size: 18px;
+  top: 18px;
+  left: 3%;
+  font-weight: bold;
 }
 
 #info p {
   margin-top: 0px;
   margin-bottom: 0px;
-
-  text-transform: uppercase;
-  font-family: sans-serif;
 }
 </style>

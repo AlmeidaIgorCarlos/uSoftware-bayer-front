@@ -3,34 +3,26 @@
     <ul>
       <slot></slot>
     </ul>
-      <img class="pointer" src="../assets/menu_icon.svg" @click="this.controlMenu"/>
+    <img class="pointer" src="../assets/menu_icon.svg" @click="this.controlMenu" />
   </div>
 </template>
 
 <script>
 export default {
-
   data() {
     return {
-      lateralMenu: {}
+      state: {},
+      menuInitialWidth: "280px",
+      menuContractedWidth: "70px"
     };
   },
   methods: {
     controlMenu(element) {
-      if (element.target.nodeName != "IMG") return;
-      const menuDOM = this.$refs.lateralMenu;
-      const elementDOM = element.srcElement;
-      const menu = this.lateralMenu;
-
-      if (!menu.state) {
-        menuDOM.style = "min-width: 70px; width: 70px";
-        elementDOM.style = "left: 15px";
-      } else {
-        menuDOM.style = "min-width: 260";
-        elementDOM.style = "left: 210px";
-      }
-
-      menu.state = !menu.state ? true : false;
+      const menuDomElement = document.getElementById("lateral-menu");
+      if (!this.state.value)
+        menuDomElement.style["width"] = this.menuContractedWidth;
+      else menuDomElement.style["width"] = this.menuInitialWidth;
+      this.state = !this.state.value ? { value: true } : { value: false };
     }
   }
 };
@@ -38,12 +30,12 @@ export default {
 
 <style lang="scss" scoped>
 #lateral-menu {
-  transition: min-width 0.5s;
-  margin-left: -5px;
+  transition: width 0.5s;
   background-color: black;
-  min-width: 260px;
+  width: 280px;
   min-height: 100vh;
-  overflow:hidden;
+  overflow: hidden;
+  position: relative;
 }
 
 #lateral-menu ul {
@@ -58,24 +50,16 @@ export default {
   top: 17px;
   left: 10px;
 
-  text-transform: uppercase;
-  color: white
+  color: white;
 }
 
 #lateral-menu > img {
+  transition: left 0.5s;
   position: absolute;
-  left: 210px;
+  right: 10px;
   bottom: 10px;
 
   width: 30px;
   height: 30px;
-
-  transition: left 0.5s;
 }
-
-.pointer{
-  cursor: pointer;
-  outline: none;
-}
-
 </style>

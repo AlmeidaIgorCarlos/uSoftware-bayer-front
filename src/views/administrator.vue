@@ -3,32 +3,32 @@
       <LateralMenu ref="lateralMenu">
           <MenuItem 
             imageLocation="./../assets/job_icon.svg"
-            imageWidth="30"
+            :imageWidth="styleProperties.menuItemImageWidth"
             text="vacancies"
             backgroundColor="black"
-            @setStatus="setStatus"
+            @setMenuItemStatus="setMenuItemStatus"
           />
           <MenuItem 
             imageLocation="./../assets/candidate_icon.svg"
-            imageWidth="30"
+            :imageWidth="styleProperties.menuItemImageWidth"
             text="candidates"
-            @setStatus="setStatus"
+            @setMenuItemStatus="setMenuItemStatus"
           />
           <MenuItem 
             imageLocation="./../assets/chart_icon.svg"
-            imageWidth="30"
+            :imageWidth="styleProperties.menuItemImageWidth"
             text="charts"
-            @setStatus="setStatus"
+            @setMenuItemStatus="setMenuItemStatus"
           />
           <MenuItem 
             imageLocation="./../assets/config_icon.svg"
-            imageWidth="30"
+            :imageWidth="styleProperties.menuItemImageWidth"
             text="configuration"
-            @setStatus="setStatus"
+            @setMenuItemStatus="setMenuItemStatus"
           />
       </Lateralmenu>
     <section id="content">
-      <ContentBar height="50px" color="#d9d9d9" />
+      <ContentBar :height="styleProperties.contentBarHeight" color="#d9d9d9" />
       <Vacancies />
     </section>
   </div>
@@ -39,6 +39,9 @@ import LateralMenu from "../components/lateral-menu";
 import MenuItem from "../components/menu-item";
 import ContentBar from "../components/content-bar"
 import Vacancies from "../components/vacancies"
+import {setMenuItemStatus as setMenuItemStatusService} from "../services/util.service"
+import {mapState} from 'vuex'
+
 export default {
     components:{
         LateralMenu,
@@ -46,32 +49,24 @@ export default {
         ContentBar,
         Vacancies
     },
+    computed:{
+      ...mapState(['styleProperties'])
+    },
     mounted(){
       const lateralMenu = this.$refs.lateralMenu
       const lateralMenuChildren = lateralMenu.$children.map(e => e.$refs.menuItem)
 
       this.listItems = lateralMenuChildren
     },
-    data(){
-      return {}
-    },
     methods:{
-      setStatus(element){
-        if(this.listItems){
-          this.listItems.forEach(e => {
-            if(element !== e){
-              e.style.backgroundColor = 'black'
-            }else
-            e.style.backgroundColor = '#d9d9d9'
-          });
-        }else this.listItems = []
+      setMenuItemStatus(element){
+        setMenuItemStatusService(element, this.listItems)
       }
-    }
+    },
 };
 </script>
 
 <style lang="scss" scoped>
-
 #user {
   display: flex;
   flex-direction: row;

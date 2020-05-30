@@ -11,6 +11,10 @@ import { setCurrentUserStateMutation } from './mutations/current-user.mutation'
 Vue.use(Vuex)
 export default new Vuex.Store({
   state: {
+    styleProperties: {
+      contentBarHeight: '50px',
+      menuItemImageWidth: '25px'
+    },
     signin: {
       email: String,
       password: String
