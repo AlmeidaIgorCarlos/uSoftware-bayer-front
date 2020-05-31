@@ -31,7 +31,7 @@ li {
   display: flex;
   flex-direction: column;
   justify-content: start;
-  padding-left: 30px;
+  padding-left: 25px;
 }
 
 li>div:first-of-type{
@@ -40,7 +40,7 @@ li>div:first-of-type{
 
 li>div:not(:first-of-type) {
   min-height: 5px;
-  max-width: 200%;
+  max-width: 500%;
   margin-left: -100px;
 }
 

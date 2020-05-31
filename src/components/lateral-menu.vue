@@ -71,7 +71,7 @@ export default {
 #lateral-menu > svg {
   transition: left 0.5s;
   position: absolute;
-  right: 10px;
+  right: 15px;
   bottom: 10px;
 
   width: 30px;
