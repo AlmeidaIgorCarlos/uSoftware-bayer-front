@@ -1,10 +1,12 @@
 export function setMenuItemStatus(element: any, listOfElements: any): void {
+    const elementNodeChild = element.childNodes[element.childNodes.length - 1]
     if (listOfElements) {
         listOfElements.forEach((listElement: any) => {
-            if (element !== listElement) {
-                listElement.style.backgroundColor = 'black'
+            const listElementNodeChild = listElement.childNodes[element.childNodes.length - 1]
+            if (elementNodeChild !== listElementNodeChild) {
+                listElementNodeChild.style.backgroundColor = 'black'
             } else
-                listElement.style.backgroundColor = '#d9d9d9'
+                listElementNodeChild.style.backgroundColor = '#d9d9d9'
         });
     } else listOfElements = []
 }
