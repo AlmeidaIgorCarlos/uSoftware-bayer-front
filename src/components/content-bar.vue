@@ -85,7 +85,7 @@ export default {
 
   width: 100%;
 
-  background-color: rgba($color: #d9d9d9, $alpha: 1);
+  background-color: var(--default-grey-color);
 }
 
 .actions {
@@ -111,7 +111,6 @@ export default {
 .content-bar-action p {
   position: relative;
   top: -8px;
-  // left: -8px;
   font-size: 0.7em;
 }
 

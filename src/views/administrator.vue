@@ -14,13 +14,13 @@
             text="candidates"
             @setMenuItemStatus="setMenuItemStatus"
           />
-          <MenuItem 
+          <MenuItem
             imageLocation="./../assets/chart_icon.svg"
             :imageWidth="styleProperties.menuItemImageWidth"
             text="charts"
             @setMenuItemStatus="setMenuItemStatus"
           />
-          <MenuItem 
+          <MenuItem
             imageLocation="./../assets/config_icon.svg"
             :imageWidth="styleProperties.menuItemImageWidth"
             text="configuration"
@@ -29,7 +29,7 @@
       </Lateralmenu>
     <section id="content">
       <ContentBar :height="styleProperties.contentBarHeight" color="#d9d9d9" />
-      <Vacancies />
+      <VacancyList />
     </section>
   </div>
 </template>
@@ -38,7 +38,7 @@
 import LateralMenu from "../components/lateral-menu";
 import MenuItem from "../components/menu-item";
 import ContentBar from "../components/content-bar"
-import Vacancies from "../components/vacancies"
+import VacancyList from "../components/vacancy-list"
 import {setMenuItemStatus as setMenuItemStatusService} from "../services/util.service"
 import {mapState} from 'vuex'
 
@@ -47,7 +47,7 @@ export default {
         LateralMenu,
         MenuItem,
         ContentBar,
-        Vacancies
+        VacancyList
     },
     computed:{
       ...mapState(['styleProperties'])

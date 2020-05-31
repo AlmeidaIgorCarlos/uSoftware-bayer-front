@@ -4,7 +4,11 @@
   </div>
 </template>
 
-<style lang="scss">
+<style lang="css">
+:root{
+  --default-grey-color: rgba($color: #d9d9d9, $alpha: 1);
+}
+
 body {
   margin: 0px !important;
   padding: 0px !important;
