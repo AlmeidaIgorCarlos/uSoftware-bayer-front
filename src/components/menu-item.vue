@@ -20,6 +20,7 @@ export default {
     setMenuItemStatus() {
       const menuItemDOM = this.$refs.menuItem;
       this.$emit("setMenuItemStatus", menuItemDOM);
+      this.$emit("activateComponent");
     }
   }
 };

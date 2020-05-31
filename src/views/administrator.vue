@@ -7,6 +7,7 @@
             text="vacancies"
             backgroundColor="black"
             @setMenuItemStatus="setMenuItemStatus"
+            @activateComponent="activateComponentVacancyList"
           />
           <MenuItem 
             imageLocation="./../assets/candidate_icon.svg"
@@ -29,7 +30,7 @@
       </Lateralmenu>
     <section id="content">
       <ContentBar :height="styleProperties.contentBarHeight" color="#d9d9d9" />
-      <VacancyList />
+      <VacancyList v-if="this.vacancyList"/>
     </section>
   </div>
 </template>
@@ -40,7 +41,11 @@ import MenuItem from "../components/menu-item";
 import ContentBar from "../components/content-bar"
 import VacancyList from "../components/vacancy-list"
 import {setMenuItemStatus as setMenuItemStatusService} from "../services/util.service"
-import {mapState} from 'vuex'
+import {mapState, mapActions} from 'vuex'
+import {setStateActionBarAction} from '../store/actions/action-bar.action'
+import ActionName from '../models/action-name.enum'
+import {setLocalStorageItem} from "../services/local-storage.service";
+import router from '../router/index'
 
 export default {
     components:{
@@ -48,6 +53,11 @@ export default {
         MenuItem,
         ContentBar,
         VacancyList
+    },
+    data(){
+      return{
+        vacancyList: false
+      }
     },
     computed:{
       ...mapState(['styleProperties'])
@@ -59,10 +69,47 @@ export default {
       this.listItems = lateralMenuChildren
     },
     methods:{
+      ...mapActions([setStateActionBarAction.name]),
       setMenuItemStatus(element){
         setMenuItemStatusService(element, this.listItems)
+      },
+      signOut(){
+          setLocalStorageItem("signin", {});
+          router.push("/", () => {
+          router.go(0);
+          });
+      },
+      activateComponentVacancyList(){
+        this.vacancyList = !this.vacancyList
+        this.setStateActionBarAction({
+        actionName: ActionName.Add,
+        isVisible: true,
+        action: false
+      })
+      this.setStateActionBarAction({
+        actionName: ActionName.Filter,
+        isVisible: true,
+        action: false
+      })
       }
     },
+    beforeMount(){
+      this.setStateActionBarAction({
+        actionName: ActionName.Add,
+        isVisible: false,
+        action: false
+      })
+      this.setStateActionBarAction({
+        actionName: ActionName.Filter,
+        isVisible: false,
+        action: false
+      })
+      this.setStateActionBarAction({
+        actionName: ActionName.SignOut,
+        isVisible: true,
+        action: this.signOut
+      })
+    }
 };
 </script>
 
