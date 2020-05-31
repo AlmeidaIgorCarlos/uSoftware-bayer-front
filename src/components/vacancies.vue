@@ -1,9 +1,5 @@
 <template>
   <div>
-    <header>
-      <h1>vacancies</h1>
-      <input type="button" value="new vacancy" />
-    </header>
     <ul>
       <li>
         <p>Id</p>
@@ -72,22 +68,6 @@ div {
 
   border-radius: 10px;
 
-}
-div > header {
-  justify-content: space-between;
-  display: flex;
-  padding: 10px;
-}
-
-header > input {
-  border: none;
-  background-color: black;
-  color: white;
-  border-radius: 10px;
-  cursor: pointer;
-  outline: none;
-  height: 35px;
-  box-shadow: 3px 3px 10px grey;
 }
 
 ul {
