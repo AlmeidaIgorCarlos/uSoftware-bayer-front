@@ -9,12 +9,6 @@
             @setMenuItemStatus="setMenuItemStatus"
             @activateComponent="activateComponentVacancyList"
           />
-          <MenuItem 
-            imageLocation="./../assets/candidate_icon.svg"
-            :imageWidth="styleProperties.menuItemImageWidth"
-            text="candidates"
-            @setMenuItemStatus="setMenuItemStatus"
-          />
           <MenuItem
             imageLocation="./../assets/chart_icon.svg"
             :imageWidth="styleProperties.menuItemImageWidth"
