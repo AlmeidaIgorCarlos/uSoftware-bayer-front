@@ -79,12 +79,7 @@ export default {
         actionName: ActionName.Add,
         isVisible: true,
         action: false
-      })
-      this.setStateActionBarAction({
-        actionName: ActionName.Filter,
-        isVisible: true,
-        action: false
-      })
+        })
       }
     },
     beforeMount(){
