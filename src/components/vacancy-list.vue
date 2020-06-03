@@ -10,6 +10,7 @@
           :editAction="true"
           :isAvaiable="vacancy.is_avaiable"
           @deleteAction="deleteVacancy"
+          @editAction="editVacancy"
         />
       </li>
     </ul>
@@ -23,6 +24,8 @@ import {
   deleteVacancy
 } from "./../services/vacancy.service";
 import Card from "../components/card";
+import router from "../router/index";
+
 export default {
   components: {
     Card
@@ -42,12 +45,26 @@ export default {
     }
   },
   methods: {
-    edit() {
-      alert("1");
+    editVacancy(vacancy) {
+      let selectedVacancy = this.vacancies.filter(v => v.id === vacancy.id);
+      selectedVacancy = selectedVacancy[0];
+      console.log(selectedVacancy)
+      router.push({
+        name: "vacancy",
+        query: { edit: true },
+        params: {
+          id: selectedVacancy.id,
+          title: selectedVacancy.title,
+          description: selectedVacancy.description,
+          createdTime: selectedVacancy.createdAt,
+          owner: `${selectedVacancy.user.firstName} ${selectedVacancy.user.lastName}`,
+          isAvaiable: selectedVacancy.is_avaiable
+        }
+      });
     },
     async deleteVacancy(vacancy) {
       const data = await deleteVacancy(vacancy);
-      this.vacancies = this.vacancies.filter(v => v.id !== vacancy.id)
+      this.vacancies = this.vacancies.filter(v => v.id !== vacancy.id);
       alert("Vacancy deleted successfully");
     }
   }

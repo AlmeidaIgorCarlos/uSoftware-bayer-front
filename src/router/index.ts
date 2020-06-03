@@ -4,8 +4,9 @@ import { getItemFromLocalStorage } from '../services/local-storage.service'
 import SignIn from '../views/sign-in.vue'
 import SignUp from '../views/sign-up.vue'
 import Administrator from '../views/administrator.vue'
+import Vacancy from '../views/vacancy.vue'
 import User from '../views/user.vue'
-
+import VacancyModel from '../models/vacancy.model'
 Vue.use(VueRouter)
 
 const routes: Array<RouteConfig> = [
@@ -27,12 +28,18 @@ const routes: Array<RouteConfig> = [
   {
     path: '/administrator',
     name: 'administrator',
-    component: Administrator
+    component: Administrator,
   },
   {
     path: '/user',
     name: 'user',
     component: User
+  },
+  {
+    path: '/vacancy',
+    name: 'vacancy',
+    component: Vacancy,
+    props: true
   }
 ]
 

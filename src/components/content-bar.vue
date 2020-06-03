@@ -1,10 +1,7 @@
 <template>
   <div :style="{height: this.height, 'background-color': this.color }" id="content-bar">
     <div class="actions">
-      <div 
-      class="content-bar-action pointer"
-      v-if="this.addAction.isVisible"
-      >
+      <div class="content-bar-action pointer" v-if="this.addAction.isVisible">
         <svg
           enable-background="new 0 0 512 512"
           id="Layer_1"
@@ -13,6 +10,7 @@
           xml:space="preserve"
           xmlns="http://www.w3.org/2000/svg"
           xmlns:xlink="http://www.w3.org/1999/xlink"
+          @click="goToNewVacancy"
         >
           <path
             d="M256,512C114.625,512,0,397.391,0,256C0,114.609,114.625,0,256,0c141.391,0,256,114.609,256,256  C512,397.391,397.391,512,256,512z M256,64C149.969,64,64,149.969,64,256s85.969,192,192,192c106.047,0,192-85.969,192-192  S362.047,64,256,64z M288,384h-64v-96h-96v-64h96v-96h64v96h96v64h-96V384z"
@@ -20,10 +18,7 @@
         </svg>
         <p>add</p>
       </div>
-      <div 
-      class="content-bar-action pointer"
-      v-if="this.filterAction.isVisible"
-      >
+      <div class="content-bar-action pointer" v-if="this.filterAction.isVisible">
         <svg viewBox="0 0 1792 1792" xmlns="http://www.w3.org/2000/svg">
           <path
             d="M1595 295q17 41-14 70l-493 493v742q0 42-39 59-13 5-25 5-27 0-45-19l-256-256q-19-19-19-45v-486l-493-493q-31-29-14-70 17-39 59-39h1280q42 0 59 39z"
@@ -31,10 +26,10 @@
         </svg>
         <p>filter</p>
       </div>
-      <div 
-      class="content-bar-action pointer"
-      v-if="this.signOutAction.isVisible"
-      @click="this.signOutAction.action"
+      <div
+        class="content-bar-action pointer"
+        v-if="this.signOutAction.isVisible"
+        @click="this.signOutAction.action"
       >
         <svg
           aria-hidden="true"
@@ -67,7 +62,8 @@ import {
   setLocalStorageItem,
   getItemFromLocalStorage
 } from "../services/local-storage.service";
-import { MapState, mapState } from "vuex";
+import { mapState } from "vuex";
+import router from "../router/index";
 
 export default {
   props: {
@@ -87,6 +83,14 @@ export default {
       const stateCurrentUser = this.$store.state.currentUser;
       if (typeof stateCurrentUser.id === "string") return stateCurrentUser;
       else return getItemFromLocalStorage("signin");
+    },
+    goToNewVacancy() {
+      router.push({
+        name: 'vacancy',
+        params: {
+          owner: this.fullName
+        }
+      });
     }
   }
 };

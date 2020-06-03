@@ -42,7 +42,7 @@
       <section>
         <p>{{content}}</p>
       </section>
-      <footer v-if="isAvaiable">
+      <footer v-if="!isAvaiable">
         <svg
           baseProfile="tiny"
           id="Layer_1"
@@ -83,7 +83,7 @@ export default {
   },
   methods: {
     edit(item) {
-      console.log("edit");
+      this.$emit('editAction', {id: this.id})
     },
     remove() {
       this.$emit('deleteAction', {id: this.id})

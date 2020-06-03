@@ -38,3 +38,32 @@ export async function deleteVacancy(vacancy: any) {
     })
     return data
 }
+
+export async function saveVacancy(vacancy: any) {
+    const token = getItemFromLocalStorage('signin').access_token
+    console.log(vacancy)
+    const { data } = await axios.post(`${process.env.VUE_APP_BASE_URL}${routes.vacanciesRoute}`, {
+        title: vacancy.title,
+        description: vacancy.description
+    }, {
+        headers: {
+            Authorization: `Bearer ${token}`
+        }
+    })
+    return data
+}
+
+export async function updateVacancy(vacancy: any) {
+    const token = getItemFromLocalStorage('signin').access_token
+console.log(vacancy)
+    const { data } = await axios.put(`${process.env.VUE_APP_BASE_URL}${routes.vacanciesRoute}/${vacancy.id}`, {
+        title: vacancy.title,
+        description: vacancy.description,
+        'is_avaiable': vacancy.isAvaiable
+    }, {
+        headers: {
+            Authorization: `Bearer ${token}`
+        }
+    })
+    return data
+}
