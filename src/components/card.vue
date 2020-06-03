@@ -29,7 +29,7 @@
             xmlns="http://www.w3.org/2000/svg"
             xmlns:xlink="http://www.w3.org/1999/xlink"
             class="pointer"
-            @click="remove(vacancy)"
+            @click="remove(id)"
           >
             <g>
               <path
@@ -74,6 +74,7 @@
 <script>
 export default {
   props: {
+    id: Number,
     title: String,
     content: String,
     deleteAction: Boolean,
@@ -84,8 +85,8 @@ export default {
     edit(item) {
       console.log("edit");
     },
-    delete(item) {
-      console.log("delete");
+    remove() {
+      this.$emit('deleteAction', {id: this.id})
     }
   }
 };
@@ -98,6 +99,8 @@ div {
   border-radius: inherit;
   max-width: inherit;
   max-height: inherit;
+  min-width: (max-width - 5px);
+  min-height: inherit;
 }
 
 div > header {

@@ -3,11 +3,13 @@
     <ul>
       <li v-for="vacancy in vacancies" :key="vacancy.id">
         <Card
+          :id="vacancy.id"
           :title="vacancy.title"
           :content="vacancy.description"
           :deleteAction="true"
           :editAction="true"
           :isAvaiable="vacancy.is_avaiable"
+          @deleteAction="deleteVacancy"
         />
       </li>
     </ul>
@@ -18,7 +20,7 @@
 import {
   getvacancies,
   getVacancies,
-  deactivateVacancy
+  deleteVacancy
 } from "./../services/vacancy.service";
 import Card from "../components/card";
 export default {
@@ -43,9 +45,10 @@ export default {
     edit() {
       alert("1");
     },
-    async remove(vacancy) {
-      const data = await deactivateVacancy(vacancy);
-      alert("Vacancy deactivated successfully");
+    async deleteVacancy(vacancy) {
+      const data = await deleteVacancy(vacancy);
+      this.vacancies = this.vacancies.filter(v => v.id !== vacancy.id)
+      alert("Vacancy deleted successfully");
     }
   }
 };
@@ -67,6 +70,8 @@ li {
   border-radius: 10px;
   max-width: 400px;
   max-height: 200px;
+  min-width: 400px;
+  min-height: 190px;
   margin-left: 20px;
   margin-top: 20px;
   background-color: #d9d9d9;

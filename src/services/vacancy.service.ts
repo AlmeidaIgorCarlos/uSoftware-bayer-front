@@ -27,3 +27,14 @@ export async function deactivateVacancy(vacancy: any) {
     })
     return data
 }
+
+export async function deleteVacancy(vacancy: any) {
+    const token = getItemFromLocalStorage('signin').access_token
+
+    const { data } = await axios.delete(`${process.env.VUE_APP_BASE_URL}${routes.vacanciesRoute}/${vacancy.id}`, {
+        headers: {
+            Authorization: `Bearer ${token}`
+        }
+    })
+    return data
+}
