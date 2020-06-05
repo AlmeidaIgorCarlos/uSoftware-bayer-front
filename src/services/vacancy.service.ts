@@ -19,7 +19,7 @@ export async function deactivateVacancy(vacancy: any) {
     const { data } = await axios.put(`${process.env.VUE_APP_BASE_URL}${routes.vacanciesRoute}/${vacancy.id}`, {
         title: vacancy.title,
         description: vacancy.description,
-        'is_avaiable': false
+        isAvaiable: false
     }, {
         headers: {
             Authorization: `Bearer ${token}`
@@ -59,7 +59,7 @@ console.log(vacancy)
     const { data } = await axios.put(`${process.env.VUE_APP_BASE_URL}${routes.vacanciesRoute}/${vacancy.id}`, {
         title: vacancy.title,
         description: vacancy.description,
-        'is_avaiable': vacancy.isAvaiable
+        isAvaiable: vacancy.isAvaiable
     }, {
         headers: {
             Authorization: `Bearer ${token}`

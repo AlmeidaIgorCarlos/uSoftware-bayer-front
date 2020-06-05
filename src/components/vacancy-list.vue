@@ -8,7 +8,7 @@
           :content="vacancy.description"
           :deleteAction="true"
           :editAction="true"
-          :isAvaiable="vacancy.is_avaiable"
+          :isAvaiable="vacancy.isAvaiable"
           @deleteAction="deleteVacancy"
           @editAction="editVacancy"
         />
@@ -58,7 +58,7 @@ export default {
           description: selectedVacancy.description,
           createdTime: selectedVacancy.createdAt,
           owner: `${selectedVacancy.user.firstName} ${selectedVacancy.user.lastName}`,
-          isAvaiable: selectedVacancy.is_avaiable
+          isAvaiable: selectedVacancy.isAvaiable
         }
       });
     },

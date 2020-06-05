@@ -4,7 +4,7 @@ type stateVacancyModel = {
     id: number
     title: string
     description: string
-    is_avaiable: boolean
+    isAvaiable: boolean
     createdAt: Date
     updatedAt: Date
     user: StateUserModel
