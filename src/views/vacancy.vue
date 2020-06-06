@@ -58,7 +58,7 @@ export default {
   },
   methods: {
     goToAdministrator() {
-      router.push("/administrator");
+      router.replace("/administrator/vacancies");
     },
     validateForm(){
       if(this.dataTitle === "" || this.dataDescription === ""){
