@@ -24,7 +24,7 @@
       </Lateralmenu>
     <section id="content">
       <ContentBar :height="styleProperties.contentBarHeight" color="#d9d9d9" />
-      <VacancyList v-if="this.vacancyList"/>
+      <router-view />
     </section>
   </div>
 </template>
@@ -33,7 +33,6 @@
 import LateralMenu from "../components/lateral-menu";
 import MenuItem from "../components/menu-item";
 import ContentBar from "../components/content-bar"
-import VacancyList from "../components/vacancy-list"
 import {setMenuItemStatus as setMenuItemStatusService} from "../services/util.service"
 import {mapState, mapActions} from 'vuex'
 import {setStateActionBarAction} from '../store/actions/action-bar.action'
@@ -46,12 +45,6 @@ export default {
         LateralMenu,
         MenuItem,
         ContentBar,
-        VacancyList
-    },
-    data(){
-      return{
-        vacancyList: false
-      }
     },
     computed:{
       ...mapState(['styleProperties'])
@@ -74,7 +67,7 @@ export default {
           });
       },
       activateComponentVacancyList(){
-        this.vacancyList = !this.vacancyList
+        router.replace('/administrator/vacancies')
         this.setStateActionBarAction({
         actionName: ActionName.Add,
         isVisible: true,

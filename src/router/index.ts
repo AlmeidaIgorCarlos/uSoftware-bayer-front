@@ -6,7 +6,7 @@ import SignUp from '../views/sign-up.vue'
 import Administrator from '../views/administrator.vue'
 import Vacancy from '../views/vacancy.vue'
 import User from '../views/user.vue'
-import VacancyModel from '../models/vacancy.model'
+import VacancyList from '../components/vacancy-list'
 Vue.use(VueRouter)
 
 const routes: Array<RouteConfig> = [
@@ -29,6 +29,12 @@ const routes: Array<RouteConfig> = [
     path: '/administrator',
     name: 'administrator',
     component: Administrator,
+    children:[
+      {
+        path: 'vacancies',
+        component: VacancyList
+      }
+    ]
   },
   {
     path: '/user',
