@@ -6,7 +6,8 @@ import SignUp from '../views/sign-up.vue'
 import Administrator from '../views/administrator.vue'
 import Vacancy from '../views/vacancy.vue'
 import User from '../views/user.vue'
-import VacancyList from '../components/vacancy-list'
+import VacancyList from '../components/vacancy-list.vue'
+import Candidates from '../views/candidates.vue'
 Vue.use(VueRouter)
 
 const routes: Array<RouteConfig> = [
@@ -46,6 +47,11 @@ const routes: Array<RouteConfig> = [
     name: 'vacancy',
     component: Vacancy,
     props: true
+  },
+  {
+    path: '/candidates/:id',
+    name: 'candidates',
+    component: Candidates
   }
 ]
 

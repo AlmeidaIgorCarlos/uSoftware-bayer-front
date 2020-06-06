@@ -38,7 +38,8 @@
         </div>
       </form>
     </section>
-    <aside></aside>
+    <aside>
+    </aside>
   </div>
 </template>
 

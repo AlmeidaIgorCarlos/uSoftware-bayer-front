@@ -13,6 +13,17 @@ export async function getVacancies() {
     return data
 }
 
+export async function getVacancyById(id: number) {
+    const token = getItemFromLocalStorage('signin').access_token
+
+    const { data } = await axios.get(`${process.env.VUE_APP_BASE_URL}${routes.vacanciesRoute}/${id}`, {
+        headers: {
+            Authorization: `Bearer ${token}`
+        }
+    })
+    return data
+}
+
 export async function deactivateVacancy(vacancy: any) {
     const token = getItemFromLocalStorage('signin').access_token
 

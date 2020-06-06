@@ -8,9 +8,11 @@
           :content="vacancy.description"
           :deleteAction="true"
           :editAction="true"
+          :dependencyAction="true"
           :isAvaiable="vacancy.isAvaiable"
           @deleteAction="deleteVacancy"
           @editAction="editVacancy"
+          @dependencyAction="dependencyAction"
         />
       </li>
     </ul>
@@ -45,10 +47,14 @@ export default {
     }
   },
   methods: {
+    dependencyAction(vacancy) {
+      router.push({
+        path: "/candidates/"+vacancy.id,
+      });
+    },
     editVacancy(vacancy) {
       let selectedVacancy = this.vacancies.filter(v => v.id === vacancy.id);
       selectedVacancy = selectedVacancy[0];
-      console.log(selectedVacancy)
       router.push({
         name: "vacancy",
         query: { edit: true },
