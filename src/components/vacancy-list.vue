@@ -1,5 +1,6 @@
 <template>
   <div>
+    <h1>Vacancies</h1>
     <ul>
       <li v-for="vacancy in vacancies" :key="vacancy.id">
         <Card
@@ -99,5 +100,14 @@ li {
   margin-top: 20px;
   background-color: #d9d9d9;
   box-shadow: 5px 5px 10px grey;
+}
+
+h1{
+  display: inline-block;
+  margin-top: 50px;
+  position: relative;
+  left: 60px;
+  text-transform: uppercase;
+  font-size: 1.5em;
 }
 </style>

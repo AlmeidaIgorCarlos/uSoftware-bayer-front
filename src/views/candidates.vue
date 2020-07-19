@@ -18,10 +18,15 @@
     <aside>
       <h1>Vacancy</h1>
       <form action>
+        <span>title</span>
         <input type="text" placeholder="title" :value="title" readonly="true"/>
+        <span>description</span>
         <input type="text" placeholder="description" :value="description" readonly="true"/>
+        <span>created at</span>
         <input type="text" placeholder="created time" :value="createdAt" readonly="true" />
+        <span>updated at</span>
         <input type="text" placeholder="updated time" :value="updatedAt" readonly="true" />
+        <span>owner</span>
         <input type="text" placeholder="owner" :value="owner" readonly="true" />
         <div>
           <input type="checkbox" name="isAvaiable" checked="isAvaiable" readonly="true" />
@@ -110,8 +115,21 @@ aside > form {
   display: flex;
   flex-direction: column;
   max-width: 90%;
-  top: 80px;
+  top: 120px;
   left: 20px;
+}
+aside > form > span:first-of-type{
+  position: relative;
+  left: 10px;
+  bottom: 10px;
+  opacity: .4
+}
+
+aside > form > span:not(:first-of-type){
+  position: relative;
+  left: 10px;
+  top: 40px;
+  opacity: .4
 }
 
 aside > form > input {

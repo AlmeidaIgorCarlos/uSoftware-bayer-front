@@ -83,7 +83,7 @@ export default {
         });
       }
       alert("Vacancy saved successfully");
-      router.push('/administrator')
+      router.replace("/administrator/vacancies");
     }
   },
   data() {
