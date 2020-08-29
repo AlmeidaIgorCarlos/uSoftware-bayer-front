@@ -87,9 +87,7 @@ export default {
 <style lang="scss" scoped>
 #signin {
   width: 100%;
-}
-
-body {
   background-color: black;
 }
+
 </style>

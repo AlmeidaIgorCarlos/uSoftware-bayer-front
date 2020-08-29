@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div id="candidates">
     <section>
       <svg
         @click="goToAdministrator"
@@ -78,6 +78,10 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+#candidates{
+background-color: white;
+}
+
 div {
   display: flex;
 }

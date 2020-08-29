@@ -86,6 +86,8 @@ div {
 
 ul {
   list-style: none;
+  overflow-y: scroll;
+  max-height: 90%;
 }
 
 li {

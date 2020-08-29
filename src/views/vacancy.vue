@@ -124,6 +124,7 @@ export default {
 <style lang="scss" scoped>
 div {
   display: flex;
+  background-color: white;
 }
 
 section {
