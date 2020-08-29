@@ -14,14 +14,17 @@
         <polygon points="352,115.4 331.3,96 160,256 331.3,416 352,396.7 201.5,256 " />
       </svg>
       <h1>Candidates</h1>
+      <article>
+        <CandidateList :vacancy="vacancy" v-if="vacancy"/>
+      </article>
     </section>
     <aside>
       <h1>Vacancy</h1>
       <form action>
         <span>title</span>
-        <input type="text" placeholder="title" :value="title" readonly="true"/>
+        <input type="text" placeholder="title" :value="title" readonly="true" />
         <span>description</span>
-        <input type="text" placeholder="description" :value="description" readonly="true"/>
+        <input type="text" placeholder="description" :value="description" readonly="true" />
         <span>created at</span>
         <input type="text" placeholder="created time" :value="createdAt" readonly="true" />
         <span>updated at</span>
@@ -39,47 +42,53 @@
 
 <script>
 import router from "../router/index";
-import { saveVacancy, updateVacancy, getVacancyById } from "../services/vacancy.service";
+import {
+  saveVacancy,
+  updateVacancy,
+  getVacancyById,
+} from "../services/vacancy.service";
+import CandidateList from "../components/candidate-list";
 export default {
   data() {
     return {
-      vacancyId: 0,
+      vacancy: undefined,
       candidates: [],
-      title: '',
-      description: '',
+      title: "",
+      description: "",
       isAvaiable: false,
-      createdAt: '',
-      updatedAt: '',
-      owner: ''
+      createdAt: "",
+      updatedAt: "",
+      owner: "",
     };
   },
   async created() {
-    this.vacancyId = this.$route.params.id;
-    
-    let vacancy = await getVacancyById(this.vacancyId)
-    vacancy = vacancy[0]
+    const vacancyId = this.$route.params.id;
 
-    this.title = vacancy.title
-    this.description = vacancy.description
-    this.isAvaiable = vacancy.isAvaiable
-    this.createdAt = vacancy.createdAt
-    this.updatedAt = vacancy.updatedAt
-    this.isAvaiable = vacancy.isAvaiable
-    this.owner = `${vacancy.user.firstName} ${vacancy.user.lastName}`
+    const vacancies = await getVacancyById(vacancyId);
+    this.vacancy = vacancies[0];
 
-
+    this.title = this.vacancy.title;
+    this.description = this.vacancy.description;
+    this.isAvaiable = this.vacancy.isAvaiable;
+    this.createdAt = this.vacancy.createdAt;
+    this.updatedAt = this.vacancy.updatedAt;
+    this.isAvaiable = this.vacancy.isAvaiable;
+    this.owner = `${this.vacancy.user.firstName} ${this.vacancy.user.lastName}`;
   },
   methods: {
     goToAdministrator() {
       router.replace("/administrator/vacancies");
-    }
+    },
+  },
+  components:{
+    CandidateList
   }
 };
 </script>
 
 <style lang="scss" scoped>
-#candidates{
-background-color: white;
+#candidates {
+  background-color: white;
 }
 
 div {
@@ -102,11 +111,17 @@ section > svg:first-of-type {
   left: 10px;
 }
 
-section > h1, aside > h1 {
+section > h1,
+aside > h1 {
   position: absolute;
   top: 20px;
   right: 40px;
   font-size: 1.1em;
+}
+
+section > article {
+  padding-top: 60px;
+  padding-left: 60px;
 }
 
 aside {
@@ -122,18 +137,18 @@ aside > form {
   top: 120px;
   left: 20px;
 }
-aside > form > span:first-of-type{
+aside > form > span:first-of-type {
   position: relative;
   left: 10px;
   bottom: 10px;
-  opacity: .4
+  opacity: 0.4;
 }
 
-aside > form > span:not(:first-of-type){
+aside > form > span:not(:first-of-type) {
   position: relative;
   left: 10px;
   top: 40px;
-  opacity: .4
+  opacity: 0.4;
 }
 
 aside > form > input {
@@ -160,5 +175,4 @@ aside > form > input[type="text"] {
   padding-left: 10px;
   outline: none;
 }
-
 </style>
