@@ -9,18 +9,6 @@
             @setMenuItemStatus="setMenuItemStatus"
             @activateComponent="activateComponentVacancyList"
           />
-          <MenuItem
-            imageLocation="./../assets/chart_icon.svg"
-            :imageWidth="styleProperties.menuItemImageWidth"
-            text="charts"
-            @setMenuItemStatus="setMenuItemStatus"
-          />
-          <MenuItem
-            imageLocation="./../assets/config_icon.svg"
-            :imageWidth="styleProperties.menuItemImageWidth"
-            text="configuration"
-            @setMenuItemStatus="setMenuItemStatus"
-          />
       </Lateralmenu>
     <section id="content">
       <ContentBar :height="styleProperties.contentBarHeight" color="#d9d9d9" />

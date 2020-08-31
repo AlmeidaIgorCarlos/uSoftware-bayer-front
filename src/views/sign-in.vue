@@ -52,7 +52,6 @@ export default {
       if (validateSignInServiceCall(localStateSignInModel)) {
         signInServiceCall(localStateSignInModel)
           .then(e => {
-            alert("You have successfully signed into the system");
             this.setCurrentUserStateAction({
               id: e.id,
               firstName: e.firstName,
@@ -60,9 +59,9 @@ export default {
               role: e.role,
               accessToken: e.access_token
             });
-            router.push("/main");
-            if (e.role === "user") router.push("/user");
+            if (e.role === "user") throw new Error("Users with role 'user' are not allowed to use this portal")
             else router.push("/administrator");
+            alert("You have successfully signed into the system");
           })
           .catch(e => alert(e.message));
       }else { alert('Invalid Sign In Data') }
