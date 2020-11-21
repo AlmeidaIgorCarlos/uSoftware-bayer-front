@@ -21,22 +21,18 @@
 </template>
 
 <script>
-import {
-  getvacancies,
-  getVacancies,
-  deleteVacancy
-} from "./../services/vacancy.service";
+import { getVacancies, deleteVacancy } from "./../services/vacancy.service";
 import Card from "../components/card";
 import router from "../router/index";
 
 export default {
   components: {
-    Card
+    Card,
   },
   data() {
     return {
       vacancies: [],
-      vacancyModalStyle: {}
+      vacancyModalStyle: {},
     };
   },
   async mounted() {
@@ -50,11 +46,11 @@ export default {
   methods: {
     dependencyAction(vacancy) {
       router.push({
-        path: "/candidates/"+vacancy.id,
+        path: "/candidates/" + vacancy.id,
       });
     },
     editVacancy(vacancy) {
-      let selectedVacancy = this.vacancies.filter(v => v.id === vacancy.id);
+      let selectedVacancy = this.vacancies.filter((v) => v.id === vacancy.id);
       selectedVacancy = selectedVacancy[0];
       router.push({
         name: "vacancy",
@@ -65,16 +61,16 @@ export default {
           description: selectedVacancy.description,
           createdTime: selectedVacancy.createdAt,
           owner: `${selectedVacancy.user.firstName} ${selectedVacancy.user.lastName}`,
-          isAvaiable: selectedVacancy.isAvaiable
-        }
+          isAvaiable: selectedVacancy.isAvaiable,
+        },
       });
     },
     async deleteVacancy(vacancy) {
-      const data = await deleteVacancy(vacancy);
-      this.vacancies = this.vacancies.filter(v => v.id !== vacancy.id);
+      await deleteVacancy(vacancy);
+      this.vacancies = this.vacancies.filter((v) => v.id !== vacancy.id);
       alert("Vacancy deleted successfully");
-    }
-  }
+    },
+  },
 };
 </script>
 
@@ -88,6 +84,7 @@ ul {
   list-style: none;
   overflow-y: scroll;
   max-height: 90%;
+  padding-bottom: 10px;
 }
 
 li {
@@ -104,7 +101,7 @@ li {
   box-shadow: 5px 5px 10px grey;
 }
 
-h1{
+h1 {
   display: inline-block;
   margin-top: 50px;
   position: relative;
